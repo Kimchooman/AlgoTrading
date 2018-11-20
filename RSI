@@ -1,0 +1,29 @@
+import pandas as ps
+
+class math:
+
+  def __init__(self, data):
+  
+    self.data = data #[N,N]
+    self.rsi_nodes = []
+    
+  def rsi(price_open, price_close):
+    gains = []
+    losses = []
+    window = 14
+    
+    if price_close > price_open:
+      gains.append(price_close - price_open)
+      
+    elif price_close < price_open:
+      losses.append(price_close - price_open)
+    
+    
+ 
+    
+    
+  def data_hopper(data):
+  
+    for dict in data:
+      for prices in data:
+        
