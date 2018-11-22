@@ -18,22 +18,34 @@ class math:
     elif price_close < price_open:
       losses.append(price_close - price_open)
     
-  def create_xd_array_shell(window):
-    
+  def create_md_array_shell(window_length, len_array):
   
-  def 2d_array_filter(window, array):      #[[1,2,3,4,5,6,7,8,9,10,11,12,13,14],[15,....]
+    array_shell = []
+    whole_windows = len_array // window_length
+    window_remainder = len_array - whole_windows
+    total_arrays = whole_windows + window_remainder
+    
+    for n in range(1,total_arrays):
+      array_shell.append([])
+      
+    return array_shell
+  
+  def 2d_array_filter(window, array):
+      array_shell = creat_md_array_shell(window, len(array))
+      
       t_timer = True
       n_timer = 0
-      while timer is True:
-          while n_timer <= window:
-            for i in array:
-              n_timer += 1       
+      while t_timer is True:
+         for len(array_shell):
+            while n_timer <= window:
+              for i in array:
+                n_timer += 1       
               
-              try:
-                array.pop(i)
-              except:
-                timer = False
-          n_timer = 0
+                try:
+                  array.pop(i)
+                except:
+                  timer = False
+              n_timer = 0
     
   def data_hopper(data):
   
