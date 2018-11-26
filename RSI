@@ -22,7 +22,7 @@ class math:
   
     array_shell = []
     whole_windows = len_array // window_length
-    window_remainder = len_array - whole_windows
+    window_remainder = len_array % window_length
     total_arrays = whole_windows + window_remainder
     
     for n in range(1,total_arrays):
@@ -32,20 +32,14 @@ class math:
   
   def 2d_array_filter(window, array):
       array_shell = creat_md_array_shell(window, len(array))
-      
-      t_timer = True
-      n_timer = 0
-      while t_timer is True:
-         for len(array_shell):
-            while n_timer <= window:
-              for i in array:
-                n_timer += 1       
+     
+         for array in array_shell:
+              for i in array:     
               
                 try:
                   array.pop(i)
                 except:
                   timer = False
-              n_timer = 0
     
   def data_hopper(data):
   
