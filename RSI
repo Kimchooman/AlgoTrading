@@ -1,48 +1,33 @@
-import pandas as ps
-
-class math:
-
-  def __init__(self, data):
-  
-    self.data = data #[N,N]
-    self.rsi_nodes = []
+def relative_strength_index(df, n):
+    """Calculate Relative Strength Index(RSI) for given data.
     
-  def rsi(price_open, price_close):
-    gains = []
-    losses = []
-    window = 13
-    
-    if price_close > price_open:
-      gains.append(price_close - price_open)
-      
-    elif price_close < price_open:
-      losses.append(price_close - price_open)
-    
-  def create_md_array_shell(window_length, len_array):
-  
-    array_shell = []
-    whole_windows = len_array // window_length
-    window_remainder = len_array % window_length
-    total_arrays = whole_windows + window_remainder
-    
-    for n in range(1,total_arrays):
-      array_shell.append([])
-      
-    return array_shell
-  
-  def 2d_array_filter(window, array):
-      array_shell = creat_md_array_shell(window, len(array))
-     
-         for array in array_shell:
-              for i in array:     
-              
-                try:
-                  array.pop(i)
-                except:
-                  timer = False
-    
-  def data_hopper(data):
-  
-    for dict in data:
-      for prices in data:
-        
+    :param df: pandas.DataFrame
+    :param n: 
+    :return: pandas.DataFrame
+    """
+    i = 0
+    UpI = [0]
+    DoI = [0]
+    while i + 1 <= df.index[-1]:
+        UpMove = df.loc[i + 1, 'High'] - df.loc[i, 'High']
+        DoMove = df.loc[i, 'Low'] - df.loc[i + 1, 'Low']
+        if UpMove > DoMove and UpMove > 0:
+            UpD = UpMove
+        else:
+            UpD = 0
+        UpI.append(UpD)
+        if DoMove > UpMove and DoMove > 0:
+            DoD = DoMove
+        else:
+            DoD = 0
+        DoI.append(DoD)
+        i = i + 1
+    UpI = pd.Series(UpI)
+    DoI = pd.Series(DoI)
+    PosDI = pd.Series(UpI.ewm(span=n, min_periods=n).mean())
+    NegDI = pd.Series(DoI.ewm(span=n, min_periods=n).mean())
+    RSI = pd.Series(PosDI / (PosDI + NegDI), name='RSI_' + str(n))
+    df = df.join(RSI)
+    return df
+ 
+ #copied code
