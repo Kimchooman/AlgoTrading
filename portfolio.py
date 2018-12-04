@@ -31,4 +31,4 @@ class algo_center:
       sell = trans[1]
       returns += sell - purchase
       
-   self.net_returns = (returns - self.commision) * self.tax
+   self.net_returns += (returns - self.commision) * self.tax
