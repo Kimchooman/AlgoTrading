@@ -1,9 +1,0 @@
-
-class algo_center:
-  
-  def __init__(self)
-  
-  
-  def dyn_day_average(self, window):
-    
-    for i in range(0, window)
