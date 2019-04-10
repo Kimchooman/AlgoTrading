@@ -21,6 +21,7 @@ class simulated_portfolio:
 		self.pos_size = 0
 
 	def calculated_returns(self): #Factoring in commision to final returns.
-		net_returns = (self.rtn - self.comission)
+		net_outcome = (self.rtn - self.comission)
 
-		return net_returns
+		return net_outcome
+
