@@ -1,9 +1,7 @@
 import talib
 
 class algo_center:
-	
 	def __init__(self):
-
 		_ = None
 			
 	def bare_mr(self,data):
@@ -24,9 +22,7 @@ class algo_center:
 
 			if point == data[0]:
 				pass
-
 			else:
 				rtn.append(point-data[n]) 
 				n += 1
-
 		return rtn
