@@ -1,5 +1,4 @@
 class simulated_portfolio:
-
 	def __init__(self):  #Defining object attributes.
 		self.capital = 10000
 		self.comission = 10
@@ -11,7 +10,6 @@ class simulated_portfolio:
 		if current_price < self.capital:
 			self.pos_size = self.capital // current_price
 			self.current_hold = current_price
-
 		else:
 			print("insuffient funds")
 
